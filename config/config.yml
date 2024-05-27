@@ -1,0 +1,26 @@
+environment: development
+
+storage:
+  type: in-memory
+
+postgres:
+  max_pool_size: 10
+  conn_attempts: 10
+  conn_timeout: 5
+
+log:
+  level: debug
+
+http:
+  port: 8001
+
+comment:
+  max_characters: 200
+  default_page: 1
+  default_amount: 5
+
+post:
+  title_max_characters: 100
+  content_max_characters: 10000
+  default_page: 1
+  default_amount: 10

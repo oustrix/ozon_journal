@@ -1,0 +1,18 @@
+query GetPosts($page: Int, $amount: Int) {
+    posts(page: $page, amount: $amount) {
+        id
+        title
+        content
+        publishedAt
+        authorID
+        commentable
+        comments {
+            id
+            content
+            authorID
+            postID
+            publishedAt
+            parentCommentID
+        }
+    }
+}

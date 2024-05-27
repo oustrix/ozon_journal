@@ -1,0 +1,17 @@
+schema:
+  - api/graphql/schema.graphql
+exec:
+  filename: internal/controller/graphql/generated/generated.go
+  package: generated
+
+model:
+  filename: internal/controller/graphql/model/models_gen.go
+  package: model
+
+resolver:
+  layout: follow-schema
+  dir: internal/controller/graphql
+  package: graphql
+
+autobind:
+  - "github.com/99designs/gqlgen/graphql"

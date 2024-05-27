@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  app:
+    image: ozon_journal:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "8001:8001"
+    environment:
+      - STORAGE_TYPE=postgres
+      - POSTGRES_DSN=postgres://postgres@db:5432/journal?sslmode=disable
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16.3-alpine3.19
+    restart: on-failure
+    ports:
+        - "5432:5432"
+    environment:
+      - POSTGRES_DB=journal
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d journal -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5

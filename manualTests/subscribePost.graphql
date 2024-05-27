@@ -1,0 +1,15 @@
+subscription CommentAdded($postID: Int!) {
+    commentAdded(postID: $postID) {
+        id
+        content
+        authorID
+        postID
+        publishedAt
+        parentCommentID
+    }
+}
+
+variables:
+{
+    "postID": 1
+}

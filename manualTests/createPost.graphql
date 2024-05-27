@@ -1,0 +1,23 @@
+mutation {
+    createPost(
+        title: "Some Title",
+        content: "A very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong content",
+        authorId: 123,
+        commentable: true
+    ) {
+        id
+        title
+        content
+        publishedAt
+        authorID
+        commentable
+        comments {
+            id
+            content
+            authorID
+            postID
+            publishedAt
+            parentCommentID
+        }
+    }
+}

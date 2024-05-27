@@ -1,0 +1,14 @@
+mutation {
+    addComment(
+        postId: 1,
+        content: "very useful comment",
+        authorId: 456
+    ) {
+        id
+        content
+        authorID
+        postID
+        publishedAt
+        parentCommentID
+    }
+}

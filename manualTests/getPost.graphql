@@ -1,0 +1,18 @@
+query GetPost($id: Int!) {
+    post(id: $id) {
+        id
+        title
+        content
+        publishedAt
+        authorID
+        commentable
+        comments {
+            id
+            content
+            authorID
+            postID
+            publishedAt
+            parentCommentID
+        }
+    }
+}
